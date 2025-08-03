@@ -218,24 +218,10 @@
 
         <!-- Wishes Page -->
         <div id="wishes-page">
-            <h1 class="greeting"> 3 bhai theeno Thabhahi <span id="" class="special-name"></span>!</h1>
+            <h1 class="greeting"> 2 bhai Dono Thabhahi <span id="" class="special-name"></span>!</h1>
             <p class="message">Bhai chahi kuch bhi ho Humari dosti katam nhi hogi</p>
             <!--Photo frame 1 -->
-            <div class="photo-grid">
-                <div class="photo-item photo-large">
-                    <img src="Ekam and Rajat.jpg" alt="">
-                    <div class="photo-caption">Ekam And Rajat</div>
-                </div>
-                <!--Photo frame 2-->
-                <div class="photo-item">
-                    <img src="Chandan.jpg" alt="">
-                    <div class="photo-caption">Chandan</div>
-                </div>
-                <!--Photo frame 3 -->
-                <div class="photo-item">
-                    <img src="Manmeet.jpg" alt="">
-                    <div class="photo-caption">Manmeet</div>
-                </div>
+           
                
             </div>
             
@@ -243,10 +229,17 @@
                 <div class="poem">
                     <h3 class="poem-title">Friendship Blooms</h3>
                     <p class="poem-text">
-                         You cover me when bullets fly,  
-                         With you, no match ever goes dry.  
-                         From healing kits to victory cheer,  
-                         Friendship like ours? Legendary, my dear!
+                         A friend like you, a treasure true,
+                         Someone who understands, someone who's there for you.
+                         Through thick and thin, you've always stayed,
+                         In laughter and tears, our bond is made. 
+                         You know my heart, you know my soul,
+                         You make me whole, you make me bold.
+                         No matter what, you'll always be,
+                         A precious gift, a friend to me.
+                         Best Friends - Poems about Friendship
+                         Happy Friendship Day to my best friend!
+
                     </p>
                 </div>
             </div>
@@ -277,21 +270,16 @@
             // Handle submit button click
             submitBtn.addEventListener('click', function() {
                 const name = nameInput.value.trim().toLowerCase();
-                if (
-                    name === 'ekam' ||
-                    name === 'rajat' ||
-                    name === 'chandan' ||
-                    name === 'manmeet'
-                ) {
+                if (name.toLowerCase() === 'vikram') {
                     namePage.style.animation = 'fadeOut 0.5s forwards';
                     setTimeout(() => {
                         namePage.style.display = 'none';
                         wishesPage.style.display = 'block';
                         wishesPage.style.animation = 'fadeIn 0.5s forwards';
-                        nameDisplay.textContent = nameInput.value.trim();
+                        nameDisplay.textContent = name;
                     }, 500);
                 } else {
-                    alert("Please enter the correct name to proceed!");
+                    alert("Please enter the correct:Vikram name to proceed!");
                 }
             });
 
@@ -305,3 +293,4 @@
     </script>
 </body>
 </html>
+
