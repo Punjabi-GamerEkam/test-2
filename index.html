@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Day Surprise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Start Page */
+        #start-page {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        #start-page h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #fff;
+            color: #ff6b6b;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Name Input Page */
+        #name-page {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Wishes Page */
+        #wishes-page {
+            display: none;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .greeting {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        .message {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .photo-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            aspect-ratio: 1/1;
+        }
+        /* Add this for larger first photo frame */
+        .photo-large {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .special-name {
+            color: #ffcc00;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .photo-grid {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+    
+        .poetry-container {
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .poem {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .poem-title {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .poem-text {
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Start Page -->
+        <div id="start-page">
+            <h1>Special Friendship Day Surprise!</h1>
+            <a href="#" class="btn" id="start-btn">Click for a Surprise!</a>
+        </div>
+
+        <!-- Name Input Page -->
+        <div id="name-page">
+            <h1 style="color: #fff;">Enter your name</h1>
+            <input type="text" class="input-field" id="name-input" placeholder="Who is this ?">
+            <button class="btn" id="submit-btn">Submit</button>
+        </div>
+
+        <!-- Wishes Page -->
+        <div id="wishes-page">
+            <h1 class="greeting"> 3 bhai theeno Thabhahi <span id="" class="special-name"></span>!</h1>
+            <p class="message">Bhai chahi kuch bhi ho Humari dosti katam nhi hogi</p>
+            <!--Photo frame 1 -->
+            <div class="photo-grid">
+                <div class="photo-item photo-large">
+                    <img src="Ekam and Rajat.jpg" alt="">
+                    <div class="photo-caption">Ekam And Rajat</div>
+                </div>
+                <!--Photo frame 2-->
+                <div class="photo-item">
+                    <img src="Chandan.jpg" alt="">
+                    <div class="photo-caption">Chandan</div>
+                </div>
+                <!--Photo frame 3 -->
+                <div class="photo-item">
+                    <img src="Manmeet.jpg" alt="">
+                    <div class="photo-caption">Manmeet</div>
+                </div>
+               
+            </div>
+            
+            <div class="poetry-container">
+                <div class="poem">
+                    <h3 class="poem-title">Friendship Blooms</h3>
+                    <p class="poem-text">
+                         You cover me when bullets fly,  
+                         With you, no match ever goes dry.  
+                         From healing kits to victory cheer,  
+                         Friendship like ours? Legendary, my dear!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startBtn = document.getElementById('start-btn');
+            const startPage = document.getElementById('start-page');
+            const namePage = document.getElementById('name-page');
+            const wishesPage = document.getElementById('wishes-page');
+            const nameInput = document.getElementById('name-input');
+            const submitBtn = document.getElementById('submit-btn');
+            const nameDisplay = document.getElementById('name-display');
+
+            // Handle start button click
+            startBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                startPage.style.animation = 'fadeOut 0.5s forwards';
+                setTimeout(() => {
+                    startPage.style.display = 'none';
+                    namePage.style.display = 'block';
+                    namePage.style.animation = 'fadeIn 0.5s forwards';
+                }, 500);
+            });
+
+            // Handle submit button click
+            submitBtn.addEventListener('click', function() {
+                const name = nameInput.value.trim().toLowerCase();
+                if (
+                    name === 'ekam' ||
+                    name === 'rajat' ||
+                    name === 'chandan' ||
+                    name === 'manmeet'
+                ) {
+                    namePage.style.animation = 'fadeOut 0.5s forwards';
+                    setTimeout(() => {
+                        namePage.style.display = 'none';
+                        wishesPage.style.display = 'block';
+                        wishesPage.style.animation = 'fadeIn 0.5s forwards';
+                        nameDisplay.textContent = nameInput.value.trim();
+                    }, 500);
+                } else {
+                    alert("Please enter the correct name to proceed!");
+                }
+            });
+
+            // Allow Enter key to submit
+            nameInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
